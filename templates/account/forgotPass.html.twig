@@ -1,0 +1,24 @@
+{% extends 'partials/header.html.twig' %}
+
+{% block title %}Mot passe oublié{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-3">&nbsp;</div>
+            <div class="col-6">
+                <div class="bg-light mt-xl-5" py="3" px="3">
+
+                    <h1>Mot de passe oublié</h1>
+
+                    {{ form(emailForm) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

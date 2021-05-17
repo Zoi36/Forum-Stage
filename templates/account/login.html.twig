@@ -1,0 +1,56 @@
+{% extends 'partials/header.html.twig' %}
+
+{% block title %}Connectez vous{% endblock %}
+
+
+{% block body %}
+    <div class="container">
+
+        <div class="row">
+            <div class="col-3">&nbsp;</div>
+            <div class="col-6">
+                <div class="bg-light mt-xl-5" py="3" px="3">
+                    <h4 class="card-title">
+               <span class="input-group-addon">
+    <i class="fa fa-lock"></i>
+  </span>
+                        Connectez vous
+                    </h4>
+                    {% if error %}
+                        <div class="alert alert-danger">Une erreur est survenu,le nom de l'utilisateur ou le mot passe
+                            est invalide ou vous devez d'abord vous inscrire sur inscription!
+                        </div>
+                    {% endif %}
+
+                    <form action="{{ path('account_login') }}" method="post">
+
+                        <div class="form-group">
+                            <label for="username"> Username</label>
+                            <input type="text" name="_username" id="username" value="{{ lastUsername }}"
+                                   class="form-control"
+                                   placeholder="Username...">
+
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password"> Password</label>
+                            <input type="password" name="_password" id="password" class="form-control"
+                                   placeholder="Mot de passe..." required>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <button type="submit" class="btn btn-success">Connexion</button>
+                        </div>
+                        <div class="form-group">
+                            <a href="{{ path('forgotPass') }}">Mot de passe oublié</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

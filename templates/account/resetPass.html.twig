@@ -1,0 +1,17 @@
+{% extends 'partials/header.html.twig' %}
+{% block title %}Nouveau mot de passe{% endblock %}
+
+
+{% block body %}
+    <div class="bg-light mt-xl-5 ">
+        <h1>Entrez votre nouveau mot de passe</h1>
+
+        <form method="post">
+            <label for="password">Mot de passe</label>
+            <input type="password" name="password" id="password"/>
+            <input type="hidden" name="token" value="{{ token }}"/>
+            <button type="submit" class="btn btn-success">Valider</button>
+        </form>
+    </div>
+
+{% endblock %}

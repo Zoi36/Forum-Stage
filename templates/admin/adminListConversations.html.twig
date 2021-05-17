@@ -1,0 +1,37 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Conversations{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1>Conversations... </h1>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md ">
+                <table class="table">
+                    {% for conversation in pagination %}
+                        <tr>
+                            <td>
+                                <img src="{{ conversation.user.imageUser }}" width="70px;" height="80px;"/>
+                                <h5>{{ conversation.user.username }} </h5>
+                            </td>
+
+                            <td>
+                                <a href="/adminListMessages/{{ conversation.id }}"> {{ conversation.titleConversation }} </a>
+                            </td>
+
+                            <td>le {{ conversation.dateConversation|date('d/m/Y ') }}</td>
+
+
+                            <td><a href="{{ path('deleteConversation',{'id': conversation.id}) }}"
+                                   class="btn btn-primary">
+                                    <i class="fa fa-trash-o"></i></a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex  justify-content-center">{{ knp_pagination_render(pagination) }}</div>
+{% endblock %}

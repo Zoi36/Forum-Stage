@@ -1,0 +1,45 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Messages{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h3>Messages...</h3>
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md ">
+                <table class="table">
+                    {% for message in pagination %}
+                        {% if message.user.sexe=='Masculin' %}
+                            <tr bgcolor="#b3ffb3">
+
+                                <td><h5>{{ message.user.username }}</h5>
+                                    <img src="{{ message.user.imageUser }}" width="70px;" height="80px;"/></td>
+                                <td>{{ message.contentMessage }}</td>
+                                <td>{{ message.user.city }}</td>
+                                <td>{{ message.dateMessage|date('d/m/Y ') }}</td>
+
+                                <td><a href="{{ path('deleteMessage',{'id': message.id}) }}" class="btn btn-primary">
+                                        <i class="fa fa-trash-o"></i></a></td>
+                            </tr>
+                        {% elseif message.user.sexe=='Feminin' %}
+                            <tr bgcolor="#e6ffe6">
+
+                                <td><h5>{{ message.user.username }}</h5>
+                                    <img src="{{ message.user.imageUser }}" width="70px;" height="80px;"/></td>
+                                <td>{{ message.contentMessage }}</td>
+                                <td>{{ message.user.city }}</td>
+                                <td>{{ message.dateMessage|date('d/m/Y ') }}</td>
+
+                                <td><a href="{{ path('deleteMessage',{'id': message.id}) }}" class="btn btn-primary">
+                                        <i class="fa fa-trash-o"></i></a></td>
+                            </tr>
+                        {% endif %}
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="d-flex  justify-content-center">{{ knp_pagination_render(pagination) }}</div>
+    </div>
+{% endblock %}

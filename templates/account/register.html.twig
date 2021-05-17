@@ -1,0 +1,29 @@
+{% extends 'partials/header.html.twig' %}
+
+{% block title %} Inscription {% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="row" style="margin-bottom: 300px">
+            <div class="col-3">&nbsp;</div>
+            <div class="col-6">
+                <div class="bg-light mt-xl-5 ">
+
+                    <h1>Inscrivez vous</h1>
+
+                    {{ form_start(form) }}
+
+                    {{ form_widget(form) }}
+
+                    <button type="submit" class="btn btn-success">Confirmez l'inscription</button>
+
+                    {{ form_end(form) }}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}
+
